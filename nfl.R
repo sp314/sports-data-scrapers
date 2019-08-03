@@ -87,7 +87,7 @@ nfl_dataset <- function(scraped, include_playoffs = TRUE, include_ties = FALSE, 
 }
 
 
-# # Example Run
-# scraped_1999_2018 <- nfl_scrape(seasons = 1999:2018)
-# nfl_1999_2018 <- nfl_dataset(scraped = scraped_1999_2018, include_playoffs = TRUE)
-# write_csv(x = nfl_1999_2018, path = "nfl_1999_2018.csv")
+# Example Run
+scraped_1999_2018 <- nfl_scrape(seasons = 1999:2018)
+nfl_1999_2018 <- nfl_dataset(scraped = scraped_1999_2018, include_playoffs = FALSE)
+write_csv(x = nfl_1999_2018, path = "nfl_1999_2018.csv")

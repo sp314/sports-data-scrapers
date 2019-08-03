@@ -71,7 +71,8 @@ nhl_dataset <- function(scraped, include_playoffs = TRUE, ...) {
       away_score = as.numeric(away_score),
       home_score = as.numeric(home_score),
       home_win = home_score > away_score,
-      home_mov = home_score - away_score) %>%
+      home_mov = home_score - away_score,
+      playoff = as.logical(playoff)) %>%
     select(game_id, season, playoff, game_date, home, away, home_score, away_score, home_win, home_mov, overtimes)
     
     if(!include_playoffs) {
@@ -83,5 +84,5 @@ nhl_dataset <- function(scraped, include_playoffs = TRUE, ...) {
 
 # Example Run
 scraped_1999_2019 <- nhl_scrape(1999:2019)
-nhl_1999_2019 <- nhl_dataset(scraped = scraped_1999_2019, include_playoffs = TRUE)
+nhl_1999_2019 <- nhl_dataset(scraped = scraped_1999_2019, include_playoffs = FALSE)
 write_csv(x = nhl_1999_2019, path = "nhl_1999_2018.csv")
